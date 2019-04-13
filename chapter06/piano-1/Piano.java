@@ -37,17 +37,14 @@ public class Piano extends World
     public void act()
     {
         //Say hello to everyone in the class!
-        if (frames % 60 == 0)
+        if ((frames % 60 == 0) && (frames / 60 < 16))
         {
             //Only show a message when we are in the bounds of the array
             showText("Array index is:" + frames / 60, 400, 250);
 
             // Only say hello when we are in the bounds of the array
-            if (frames / 60 < 16)
-            {
-                //Track frames
-                showText("Hello" + peopleInClass[frames / 60], 400, 170);
-            }
+            //Track frames
+            showText("Hello" + peopleInClass[frames / 60], 400, 170);
 
         }
         // show the frames
@@ -56,4 +53,8 @@ public class Piano extends World
         // Show the frames
         showText("" + frames, 100, 100);
     }
+    
+    /**
+     * p
+     */
 }

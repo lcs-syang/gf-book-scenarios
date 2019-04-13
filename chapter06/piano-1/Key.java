@@ -7,6 +7,7 @@ public class Key extends Actor
      */
     public Key()
     {
+        
     }
 
     /**
@@ -14,6 +15,17 @@ public class Key extends Actor
      */
     public void act()
     {
+        // Amimate the piano key being pressed
+        if(Greenfoot.isKeyDown("g"))
+        {
+            setImage("white-key-down.png");
+        }
+        else
+        {
+            setImage("white-key.png");
+
+        }
+        
     }
 }
 

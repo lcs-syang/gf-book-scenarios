@@ -49,7 +49,9 @@ public class Key extends Actor
      */
     public void play()
     {
+        // Key is up
         Greenfoot.playSound("3a.wav");
+        keyAlreadyDown = false;
     }
 }
 

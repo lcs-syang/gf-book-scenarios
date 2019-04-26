@@ -8,16 +8,21 @@ public class Key extends Actor
      */
     //Will keep track of whether a key was just pressed
     private boolean keyAlreadyDown;
-    
+    //Will contain the key and sound file that this instance of the class wil play
+    private String key;
+    private String sound;
     
     /**
      * Create a new key.
      */
-    public Key()
+    public Key(String keyName, String soundFile)
     {
         // No key has been pressed
         keyAlreadyDown = false;
         
+        //Set the instance variable using the parameters
+        key = keyName;
+        sound = soundFile;
     }
 
     /**
@@ -26,7 +31,7 @@ public class Key extends Actor
     public void act()
     {
         // Amimate the piano key being pressed
-        if(Greenfoot.isKeyDown("g") && keyAlreadyDown == false)
+        if(Greenfoot.isKeyDown(key) && keyAlreadyDown == false)
         {
             setImage("white-key-down.png");
             play();
@@ -36,7 +41,7 @@ public class Key extends Actor
         //Stop showing the key being pressed
         //Condition 1 - the key was down the last time act() fired
         //Condition 2- the "g" has been released no longer being pressed
-        if ( keyAlreadyDown == true && Greenfoot.isKeyDown("g") == false)
+        if ( keyAlreadyDown == true && Greenfoot.isKeyDown(key) == false)
         {
             setImage("white-key.png");
             keyAlreadyDown = false;
@@ -50,7 +55,7 @@ public class Key extends Actor
     public void play()
     {
         // Key is up
-        Greenfoot.playSound("3a.wav");
+        Greenfoot.playSound(sound +".wav");
         keyAlreadyDown = false;
     }
 }
